@@ -1,0 +1,239 @@
+# Desafio Microservices - Order + Payment
+
+Este projeto tem como objetivo desenvolver dois serviços independentes que se comunicam entre si, simulando um cenário real de arquitetura distribuída.
+
+---
+
+## Objetivo
+
+Construir duas APIs REST utilizando Java e Quarkus:
+
+* Order Service → responsável por pedidos
+* Payment Service → responsável por pagamentos
+
+Os serviços devem ser desenvolvidos separadamente e, posteriormente, integrados.
+
+---
+
+## Estrutura do Projeto
+
+/order-service
+/payment-service
+/docs
+
+---
+
+## Responsabilidades
+
+* Giovanni → Order Service
+* Paulo → Payment Service
+
+---
+
+## Regras gerais
+
+* Cada desenvolvedor é responsável pelo seu serviço
+* Alterações no serviço do outro devem ser alinhadas
+* Comunicação entre serviços deve seguir contrato definido
+* Código deve ser organizado e legível
+
+---
+
+## Fase 1 — Desenvolvimento isolado
+
+Nesta fase, cada serviço deve ser desenvolvido de forma independente.
+
+### Order Service (Giovanni)
+
+* Criar pedidos
+* Consultar pedidos
+* Listar pedidos
+* Persistir dados
+* Status inicial: CREATED
+
+---
+
+### Payment Service (Paulo)
+
+* Processar pagamentos
+* Aprovar ou reprovar pagamentos
+* Persistir pagamentos
+* Consultar pagamentos
+
+---
+
+## Fase 2 — Integração
+
+Após concluir a Fase 1:
+
+* Order Service deve chamar o Payment Service
+* Atualizar status do pedido:
+
+  * PAID → aprovado
+  * CANCELED → recusado
+
+---
+
+## Fase 3 — Tratamento de falhas
+
+Implementar:
+
+* Tratamento de erro HTTP
+* Timeout
+* Serviço indisponível
+* Respostas controladas
+
+---
+
+## Trilha de aprendizado
+
+Este desafio foi estruturado para ensinar conceitos essenciais de backend.
+
+---
+
+### 1. Fundamentos de Java
+
+Você deve entender:
+
+* Classes e objetos
+* Collections (List, Map)
+* Exceptions
+* Estruturas básicas
+
+---
+
+### 2. APIs REST
+
+Conceitos importantes:
+
+* Métodos HTTP: GET, POST, PATCH
+
+* Status codes:
+
+  * 200 OK
+  * 201 Created
+  * 400 Bad Request
+  * 404 Not Found
+  * 500 Internal Server Error
+
+* Estrutura de request/response em JSON
+
+---
+
+### 3. Persistência de dados
+
+* O que é ORM
+* Entidades (Entity)
+* Repositórios (Repository)
+* Operações CRUD
+
+---
+
+### 4. Arquitetura em camadas
+
+Separar responsabilidades:
+
+* Controller (Resource)
+* Service (regras de negócio)
+* Repository (acesso a dados)
+
+---
+
+### 5. Framework
+
+Você utilizará o Quarkus.
+
+Conceitos importantes:
+
+* Injeção de dependência
+* REST endpoints
+* Configuração via application.properties
+
+---
+
+### 6. Boas práticas
+
+* Código limpo e organizado
+* Métodos pequenos
+* Nomes claros
+* Separação de responsabilidades
+
+---
+
+## Trilha específica por serviço
+
+### Order Service (Giovanni)
+
+Foco:
+
+* Modelagem de API
+* Organização em camadas
+* Controle de status
+* Tratamento de erros
+
+---
+
+### Payment Service (Paulo)
+
+Foco:
+
+* Regras de negócio
+* Lógica de decisão
+* Persistência consistente
+
+---
+
+## Fluxo de trabalho
+
+* Criar uma branch por funcionalidade
+* Nome da branch: feature/nome-da-tarefa
+
+---
+
+## Definition of Done
+
+Uma funcionalidade só está pronta quando:
+
+* Código compila
+* Endpoint funciona
+* Dados são persistidos
+* Erros básicos são tratados
+* Código está legível
+
+---
+
+## Objetivo final
+
+Ao final do desafio, vocês devem ser capazes de:
+
+* Construir APIs REST completas
+* Trabalhar com persistência de dados
+* Separar responsabilidades corretamente
+* Integrar serviços via HTTP
+* Lidar com falhas reais
+
+---
+
+## Dica importante
+
+Não tente fazer tudo de uma vez.
+
+Siga a ordem:
+
+1. Estrutura básica
+2. CRUD
+3. Regras de negócio
+4. Integração
+5. Tratamento de erros
+
+---
+
+## Avaliação
+
+Você será avaliado em:
+
+* Organização do código
+* Clareza da solução
+* Tratamento de erros
+* Funcionamento da API
+* Capacidade de integração
