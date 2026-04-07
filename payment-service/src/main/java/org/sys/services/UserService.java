@@ -22,4 +22,15 @@ public class UserService {
   public Users findUserById(UUID userId) {
     return (Users) Users.findByIdOptional(userId).orElseThrow(UserNotFoundException::new);
   }
+
+  public Users updateUserById(UUID userId, Users users) {
+    var user = findUserById(userId);
+
+    user.username = users.username;
+    user.email = users.email;
+
+    Users.persist(users);
+
+    return(users);
+  }
 }
