@@ -29,8 +29,8 @@ public class UserService {
     user.username = users.username;
     user.email = users.email;
 
-    Users.persist(users);
+    Users.persist(user);
 
-    return(users);
+    return(user);
   }
 }
