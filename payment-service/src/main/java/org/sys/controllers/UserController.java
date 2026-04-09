@@ -17,7 +17,6 @@ import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.Response;
 
 @Path("/users")
-
 public class UserController {
 
   private final UserService userService;
