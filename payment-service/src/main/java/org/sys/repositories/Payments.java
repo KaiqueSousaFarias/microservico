@@ -15,6 +15,6 @@ public class Payments extends PanacheEntityBase {
   @GeneratedValue(strategy = GenerationType.UUID)
   public String id;
   public String orderId;
-  public Number value;
+  public Integer value;
   public String status;
 }

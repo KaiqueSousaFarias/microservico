@@ -37,4 +37,11 @@ public class PaymentController {
     var payment = paymentService.findPaymentById(paymentId);
     return Response.ok(payment).build();
   }
+
+  @POST
+  @Path("/create")
+  @Transactional
+  public Response createPayment(Payments payments) { 
+    return Response.ok(paymentService.createPayment(payments)).build();
+  }
 }

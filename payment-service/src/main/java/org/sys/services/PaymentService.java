@@ -17,4 +17,9 @@ public class PaymentService {
   public Payments findPaymentById(UUID paymentId) {
     return (Payments) Payments.findByIdOptional(paymentId).orElseThrow(PaymentNotFoundException::new);
   }
+
+  public Payments createPayment(Payments payments) {
+    Payments.persist(payments);
+    return payments;
+  }
 }
