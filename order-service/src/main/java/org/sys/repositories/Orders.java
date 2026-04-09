@@ -3,20 +3,28 @@ package org.sys.repositories;
 import java.util.UUID;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "tb_users")
-public class Users extends PanacheEntityBase {
+@Table(name = "tb_orders")
+public class Orders extends PanacheEntityBase {
 
   @Id
   @GeneratedValue(strategy = GenerationType.UUID)
   public UUID id;
-  public String username;
-  public String email;
 
+  @Column(name = "description")
+  public String description;
+
+  public Integer value;
+
+  @Enumerated(EnumType.STRING)
+  public OrderStatus status;
 }
