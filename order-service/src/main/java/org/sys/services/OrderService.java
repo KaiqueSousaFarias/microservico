@@ -1,18 +1,18 @@
-package main.java.org.sys.services;
+package org.sys.services;
 
 import java.util.List;
 import java.util.UUID;
 
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 import org.sys.clients.PaymentRequest;
+import org.sys.clients.PaymentResponse;
 import org.sys.clients.PaymentRestClient;
+import org.sys.exceptions.OrderNotFoundException;
 import org.sys.exceptions.PaymentServiceException;
 import org.sys.repositories.OrderStatus;
 import org.sys.repositories.Orders;
 
 import jakarta.enterprise.context.ApplicationScoped;
-import main.java.org.sys.clients.PaymentResponse;
-import main.java.org.sys.exceptions.OrderNotFoundException;
 
 @ApplicationScoped
 public class OrderService {
@@ -55,8 +55,10 @@ public class OrderService {
       } else {
         order.status = OrderStatus.CANCELED;
       }
+    } catch (PaymentServiceException e) {
+      throw e;
     } catch (Exception e) {
-      order.status = OrderStatus.CANCELED;
+      throw new PaymentServiceException("Payment service is unavailable");
     }
 
     Orders.persist(order);

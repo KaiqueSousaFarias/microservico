@@ -3,7 +3,7 @@ package org.sys.exceptions;
 import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.ext.ExceptionMapper;
 import jakarta.ws.rs.ext.Provider;
-import main.java.org.sys.exceptions.OrderNotFoundException;
+import org.sys.exceptions.OrderNotFoundException;
 
 @Provider
 public class OrderResponseExceptionMapper implements ExceptionMapper<OrderNotFoundException> {

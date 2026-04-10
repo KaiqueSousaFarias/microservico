@@ -13,7 +13,7 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.Response;
-import main.java.org.sys.services.OrderService;
+import org.sys.services.OrderService;
 
 @Path("/orders")
 public class OrderController {
