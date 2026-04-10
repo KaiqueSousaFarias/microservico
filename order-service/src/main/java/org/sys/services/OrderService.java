@@ -5,14 +5,15 @@ import java.util.UUID;
 
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 import org.sys.clients.PaymentRequest;
-import org.sys.clients.PaymentResponse;
 import org.sys.clients.PaymentRestClient;
-import org.sys.exceptions.OrderNotFoundException;
+import org.sys.exceptions.InvalidOrderOperationException;
 import org.sys.exceptions.PaymentServiceException;
 import org.sys.repositories.OrderStatus;
 import org.sys.repositories.Orders;
 
 import jakarta.enterprise.context.ApplicationScoped;
+import main.java.org.sys.clients.PaymentResponse;
+import main.java.org.sys.exceptions.OrderNotFoundException;
 
 @ApplicationScoped
 public class OrderService {
@@ -33,15 +34,44 @@ public class OrderService {
     return Orders.findAll().page(page, pageSize).list();
   }
 
+  public List<Orders> findOrdersByStatus(OrderStatus status, Integer page, Integer pageSize) {
+    return Orders.findByStatus(status, page, pageSize);
+  }
+
   public Orders findOrderById(UUID orderId) {
     return (Orders) Orders.findByIdOptional(orderId).orElseThrow(OrderNotFoundException::new);
+  }
+
+  public Orders cancelOrder(UUID orderId) {
+    Orders order = findOrderById(orderId);
+
+    if (order.status != OrderStatus.CREATED) {
+      throw new InvalidOrderOperationException(
+          "Somente pedidos com status CREATED podem ser cancelados. Status atual: " + order.status);
+    }
+
+    order.status = OrderStatus.CANCELED;
+    Orders.persist(order);
+    return order;
+  }
+
+  public void deleteOrder(UUID orderId) {
+    Orders order = findOrderById(orderId);
+
+    if (order.status != OrderStatus.CREATED) {
+      throw new InvalidOrderOperationException(
+          "Somente pedidos com status CREATED podem ser removidos. Status atual: " + order.status);
+    }
+
+    Orders.deleteById(order.id);
   }
 
   public Orders processPayment(UUID orderId) {
     Orders order = findOrderById(orderId);
 
     if (order.status != OrderStatus.CREATED) {
-      throw new PaymentServiceException("Order already processed with status: " + order.status);
+      throw new InvalidOrderOperationException(
+          "Pedido já processado com status: " + order.status);
     }
 
     try {
@@ -55,10 +85,8 @@ public class OrderService {
       } else {
         order.status = OrderStatus.CANCELED;
       }
-    } catch (PaymentServiceException e) {
-      throw e;
     } catch (Exception e) {
-      throw new PaymentServiceException("Payment service is unavailable");
+      throw new PaymentServiceException("Serviço de pagamento indisponível");
     }
 
     Orders.persist(order);
