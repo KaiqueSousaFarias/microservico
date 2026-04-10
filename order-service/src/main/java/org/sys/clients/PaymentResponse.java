@@ -1,4 +1,4 @@
-package org.sys.clients;
+package main.java.org.sys.clients;
 
 import java.util.UUID;
 

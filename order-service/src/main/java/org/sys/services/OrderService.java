@@ -1,4 +1,4 @@
-package org.sys.services;
+package main.java.org.sys.services;
 
 import java.util.List;
 import java.util.UUID;
@@ -55,12 +55,8 @@ public class OrderService {
       } else {
         order.status = OrderStatus.CANCELED;
       }
-    } catch (PaymentServiceException e) {
-      throw e;
     } catch (Exception e) {
       order.status = OrderStatus.CANCELED;
-      Orders.persist(order);
-      throw new PaymentServiceException("Payment service unavailable", e);
     }
 
     Orders.persist(order);
