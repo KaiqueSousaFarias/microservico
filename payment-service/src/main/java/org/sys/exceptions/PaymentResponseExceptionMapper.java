@@ -8,6 +8,6 @@ import jakarta.ws.rs.ext.Provider;
 public class PaymentResponseExceptionMapper implements ExceptionMapper<PaymentNotFoundException> {
   @Override
   public Response toResponse(PaymentNotFoundException exception) {
-    return Response.status(Response.Status.NOT_FOUND).entity("Payment not found").build();
+    return Response.status(Response.Status.NOT_FOUND).entity("Pagamento não encontrado").build();
   }
 }

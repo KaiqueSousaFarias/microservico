@@ -1,0 +1,12 @@
+{
+  "java.project.sourcePaths": [
+    "order-service/src/main/java",
+    "payment-service/src/main/java"
+  ],
+  "java.project.referencedLibraries": [],
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "never"
+  },
+  "java.saveActions.organizeImports": false,
+  "java.format.onType.enabled": false
+}

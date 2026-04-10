@@ -5,15 +5,15 @@ import java.util.UUID;
 
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 import org.sys.clients.PaymentRequest;
+import org.sys.clients.PaymentResponse;
 import org.sys.clients.PaymentRestClient;
 import org.sys.exceptions.InvalidOrderOperationException;
+import org.sys.exceptions.OrderNotFoundException;
 import org.sys.exceptions.PaymentServiceException;
 import org.sys.repositories.OrderStatus;
 import org.sys.repositories.Orders;
 
 import jakarta.enterprise.context.ApplicationScoped;
-import main.java.org.sys.clients.PaymentResponse;
-import main.java.org.sys.exceptions.OrderNotFoundException;
 
 @ApplicationScoped
 public class OrderService {

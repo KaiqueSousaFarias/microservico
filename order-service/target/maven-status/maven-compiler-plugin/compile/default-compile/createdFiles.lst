@@ -1,5 +1,7 @@
 org\sys\exceptions\OrderResponseExceptionMapper.class
+org\sys\exceptions\InvalidOrderOperationExceptionMapper.class
 org\sys\repositories\Orders.class
+org\sys\exceptions\InvalidOrderOperationException.class
 org\sys\clients\PaymentRestClient.class
 org\sys\exceptions\PaymentServiceException.class
 org\sys\repositories\OrderStatus.class
