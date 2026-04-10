@@ -16,6 +16,10 @@ public class PaymentService {
     return Payments.findAll().page(page, pageSize).list();
   }
 
+  public List<Payments> findPaymentsByStatus(PaymentStatus status, Integer page, Integer pageSize) {
+    return Payments.findByStatus(status, page, pageSize);
+  }
+
   public Payments findPaymentById(UUID paymentId) {
     return (Payments) Payments.findByIdOptional(paymentId).orElseThrow(PaymentNotFoundException::new);
   }

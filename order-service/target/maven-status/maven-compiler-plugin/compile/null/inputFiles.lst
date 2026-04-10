@@ -2,6 +2,8 @@ C:\Users\PauloGuilhermeFideli\Projetos_GitHub\microservico\order-service\src\mai
 C:\Users\PauloGuilhermeFideli\Projetos_GitHub\microservico\order-service\src\main\java\org\sys\clients\PaymentResponse.java
 C:\Users\PauloGuilhermeFideli\Projetos_GitHub\microservico\order-service\src\main\java\org\sys\clients\PaymentRestClient.java
 C:\Users\PauloGuilhermeFideli\Projetos_GitHub\microservico\order-service\src\main\java\org\sys\controllers\OrderController.java
+C:\Users\PauloGuilhermeFideli\Projetos_GitHub\microservico\order-service\src\main\java\org\sys\exceptions\InvalidOrderOperationException.java
+C:\Users\PauloGuilhermeFideli\Projetos_GitHub\microservico\order-service\src\main\java\org\sys\exceptions\InvalidOrderOperationExceptionMapper.java
 C:\Users\PauloGuilhermeFideli\Projetos_GitHub\microservico\order-service\src\main\java\org\sys\exceptions\OrderNotFoundException.java
 C:\Users\PauloGuilhermeFideli\Projetos_GitHub\microservico\order-service\src\main\java\org\sys\exceptions\OrderResponseExceptionMapper.java
 C:\Users\PauloGuilhermeFideli\Projetos_GitHub\microservico\order-service\src\main\java\org\sys\exceptions\PaymentServiceException.java

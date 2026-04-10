@@ -1,4 +1,4 @@
-package main.java.org.sys.exceptions;
+package org.sys.exceptions;
 
 public class OrderNotFoundException extends RuntimeException {
 }
