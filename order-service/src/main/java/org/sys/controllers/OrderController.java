@@ -32,7 +32,7 @@ public class OrderController {
 
   @GET
   @Path("/list")
-  @Operation(summary = "Listar pedidos", description = "Retorna todos os pedidos com paginação. Opcionalmente filtra por status.")
+  @Operation(summary = "Listar pedidos", description = "Retorna todos os pedidos com paginação. Opcionalmente filtra por status. ")
   public Response getAllOrders(
       @QueryParam("page") @DefaultValue("0") Integer page,
       @QueryParam("pageSize") @DefaultValue("10") Integer pageSize,
